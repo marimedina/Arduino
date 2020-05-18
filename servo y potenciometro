@@ -1,0 +1,16 @@
+#include <Servo.h>
+#define pot A0
+Servo servomotor;
+void setup()
+{
+  Serial.begin(9600);
+  servomotor.attach(2);
+}
+
+void loop()
+{
+  int valor = analogRead(pot); 
+  valor = map(valor, 0, 1024, 0, 180);
+  servomotor.write(valor);
+  delay(100);
+}
